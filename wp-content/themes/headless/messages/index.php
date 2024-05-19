@@ -7,11 +7,10 @@ require get_template_directory() . '/messages/workerConfirmedJob.php';
 require get_template_directory() . '/twillio/src/Twilio/autoload.php';
 use Twilio\Rest\Client;
 
-$account_sid = TWILLIO_ACCOUNT_SID;
-$auth_token = TWILLIO_AUTH_TOKEN;
-$twilio_number = TWILLIO_PHONE;
-
 function restSendEmail($post) {
+  $account_sid = TWILLIO_ACCOUNT_SID;
+  $auth_token = TWILLIO_AUTH_TOKEN;
+  $twilio_number = TWILLIO_PHONE;
   $client = new Client($account_sid, $auth_token);
   $state = get_field('state', $post);
   $foreman_info = get_field('foreman_info', $post);
@@ -35,6 +34,9 @@ function restSendEmail($post) {
 }
 
 function sendReminder() {
+  $account_sid = TWILLIO_ACCOUNT_SID;
+  $auth_token = TWILLIO_AUTH_TOKEN;
+  $twilio_number = TWILLIO_PHONE;
   $client = new Client($account_sid, $auth_token);
   $headers  = 'MIME-Version: 1.0' . "\r\n";
   $headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
